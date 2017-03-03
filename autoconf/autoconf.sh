@@ -8,7 +8,7 @@ echo -e "\tDOMENA:\t$MYDOMAIN\n"
 
 read -p "Przeprowadzić autokonfigurację? (t/n)" choice
 case "$choice" in 
-  t|T ) echo "Aufokonfiguracja...";;
+  t|T ) echo "Autokonfiguracja...";;
   n|N ) exit 0;;
   * ) exit 1;;
 esac
@@ -48,5 +48,5 @@ rndc reconfig
 sleep 2
 
 echo ""
-dig test.$MYDOMAIN TXT +short
+dig test.$MYDOMAIN TXT +short @8.8.8.8
 echo ""
