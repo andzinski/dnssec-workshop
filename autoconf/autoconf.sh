@@ -1,7 +1,7 @@
 #!/bin/bash
 MYIP=`ifconfig eth0 | perl -ne 'print $1 if m/inet addr:(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})/'`
 MYHOSTNAME=`hostname`
-MYDOMAINS=`dig ${MYHOSTNAME}.szkolenie.dnssec.pl txt +short | tr -d '"' | tr "\n" " "`
+MYDOMAINS=`dig ${MYHOSTNAME}.szkolenie.dnssec.pl txt +short | sort | tr -d '"' | tr "\n" " "`
 
 echo -e "\n\tIP:\t$MYIP"
 echo -e "\tDOMENY:\t$MYDOMAINS\n"
@@ -26,6 +26,7 @@ cp named.conf.options /etc/bind/named.conf.options
 echo 'include "/etc/bind/named.conf.zones";' >> /etc/bind/named.conf
 [ $? -ne 0 ] && exit 1
 
+
 touch /etc/bind/named.conf.zones
 [ $? -ne 0 ] && exit 1
 
@@ -35,9 +36,9 @@ chgrp bind /etc/bind/named.conf.zones
 
 mkdir /etc/bind/zones
 [ $? -ne 0 ] && exit 1
+
 chown -R bind:bind /etc/bind/zones
 [ $? -ne 0 ] && exit 1
-
 
 
 for MYDOMAIN in $MYDOMAINS
