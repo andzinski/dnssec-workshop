@@ -1,0 +1,7 @@
+$TTL    3600
+@       IN      SOA     ns1._MYDOMAIN_ dnsmaster.dns.pl. ( 2 604800 86400 2419200 60 )
+_MYDOMAIN_ IN NS ns1._MYDOMAIN_
+_MYDOMAIN_ IN NS ns2._MYDOMAIN_
+ns1._MYDOMAIN_ IN A _MYIP_
+ns2._MYDOMAIN_ IN A _MYIP_
+test IN TXT "Sukces!"

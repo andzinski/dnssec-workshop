@@ -1,0 +1,4 @@
+zone "_MYDOMAIN_" {
+        type master;
+        file "/etc/bind/zones/_MYDOMAIN_";
+};
