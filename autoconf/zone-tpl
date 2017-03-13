@@ -5,3 +5,5 @@ _MYDOMAIN_. IN NS ns2._MYDOMAIN_.
 ns1._MYDOMAIN_. IN A _MYIP_
 ns2._MYDOMAIN_. IN A _MYIP_
 test IN TXT "Sukces!"
+@ IN A _MYIP_
+www IN A _MYIP_
