@@ -22,6 +22,8 @@ apt-get update
 apt-get install bind9 --yes
 [ $? -ne 0 ] && exit 1
 
+apt-get install vim --yes
+[ $? -ne 0 ] && exit 1
 
 cp named.conf.options /etc/bind/named.conf.options
 [ $? -ne 0 ] && exit 1
