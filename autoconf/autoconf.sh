@@ -13,6 +13,9 @@ case "$choice" in
   * ) exit 1;;
 esac
 
+echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
+[ $? -ne 0 ] && exit 1
+
 apt-get update
 [ $? -ne 0 ] && exit 1
 
