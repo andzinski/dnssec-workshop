@@ -40,10 +40,6 @@ chgrp bind /etc/bind/named.conf.zones
 mkdir /etc/bind/zones
 [ $? -ne 0 ] && exit 1
 
-chown -R bind:bind /etc/bind/zones
-[ $? -ne 0 ] && exit 1
-
-
 for MYDOMAIN in $MYDOMAINS
 do
 	cat zone-conf-tpl >> /etc/bind/named.conf.zones
@@ -62,6 +58,9 @@ do
 	[ $? -ne 0 ] && exit 1
 
 done
+
+chown -R bind:bind /etc/bind/zones
+[ $? -ne 0 ] && exit 1
 
 rndc reconfig
 
