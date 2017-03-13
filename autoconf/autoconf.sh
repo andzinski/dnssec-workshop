@@ -64,7 +64,8 @@ done
 chown -R bind:bind /etc/bind/zones
 [ $? -ne 0 ] && exit 1
 
-rndc reconfig
+service bind9 restart
+[ $? -ne 0 ] && exit 1
 
 sleep 2
 
