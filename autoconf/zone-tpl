@@ -1,5 +1,5 @@
 $TTL    3600
-@       IN      SOA     ns1._MYDOMAIN_. dnsmaster.dns.pl. ( 2 604800 86400 2419200 60 )
+@       IN      SOA     ns1._MYDOMAIN_. dnsmaster.dns.pl. ( 2 900 86400 2419200 60 )
 _MYDOMAIN_. IN NS ns1._MYDOMAIN_.
 _MYDOMAIN_. IN NS ns2._MYDOMAIN_.
 ns1._MYDOMAIN_. IN A _MYIP_
