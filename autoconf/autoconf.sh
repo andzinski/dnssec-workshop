@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+apt-get update
+apt-get install dnsutils -y
+
 MYIP=`ifconfig eth0 | perl -ne 'print $1 if m/inet addr:(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})/'`
 MYHOSTNAME=`hostname`
 MYDOMAINS=`dig ${MYHOSTNAME}.szkolenie.dnssec.pl txt +short | sort | tr -d '"' | tr "\n" " "`
